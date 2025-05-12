@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
+}
+
+@font-face {
+    font-family: svFont;
+    src: url(https://assets.codepen.io/7237686/rainyhearts.woff) format("woff");
+}
+
+@font-face {
+    font-family: pixelFont;
+    src: url(https://assets.codepen.io/7237686//pixelFont.woff) format("woff");
+}
+
+body {
+    background: url("https://assets.codepen.io/7237686/bg.png?format=auto");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "svFont";
+    text-shadow: #ce9c5f;
+}
+
+.marquee {
+    z-index: -10;
+    position: fixed;
+    opacity: 0.8;
+    display: flex;
+    animation: marquee 150s linear infinite running;
+
+    .clouds {
+        width: 100%;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border: 6px solid #db7812;
+    padding: 1rem;
+    position: relative;
+    box-shadow:
+        inset -2px -2px 0 0 #3b2e1e,
+        /* top-left highlight */
+        inset 2px 2px 0 0 #3b2e1e,
+        /* bottom-right shadow */
+        4px 4px 0 0 #3b2e1e,
+        /* outer shadow bottom-right */
+        -4px -4px 0 0 #3b2e1e;
+    /* outer highlight top-left */
+    border-radius: 4px;
+    /* font-family: 'Press Start 2P', cursive; */
+    color: #331f28;
+    background-color: #ffc878;
+}
+
+.top-bar .title {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.top-bar .search-bar {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    width: 200px;
+}
+
+dialog {
+    box-shadow:
+        inset -2px -2px 0 0 #3b2e1e,
+        /* top-left highlight */
+        inset 2px 2px 0 0 #3b2e1e,
+        /* bottom-right shadow */
+        4px 4px 0 0 #3b2e1e,
+        /* outer shadow bottom-right */
+        -4px -4px 0 0 #3b2e1e;
+    /* outer highlight top-left */
+    border-radius: 4px;
+    border: 6px solid #db7812;
+    /* font-family: 'Press Start 2P', cursive; */
+    color: #331f28;
+    background-color: #ffc878;
+    /* A light, parchment-like background */
+    padding: 1rem;
+    position: fixed;
+    top: 30%;
+    left: 35%;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+fieldset>label {
+    margin: 0 10px 0 3px;
+}
+
+input,
+fieldset,
+textarea {
+    margin-bottom: 10px;
+    image-rendering: pixelated;
+}
+
+fieldset {
+    padding: 5px;
+}
+
+input,
+textarea {
+    font-size: 16px;
+    background-color: #f8ba70;
+    border: 2px solid #db7812;
+    font-family: pixelFont;
+    padding: 0.5rem;
+
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    filter: brightness(1.1);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label[for="low"],
+label[for="medium"],
+label[for="high"] {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    border: 2px solid #3b2e1e;
+    background-color: #ffc878;
+    box-shadow:
+        inset 2px 2px 0 0 #3b2e1e;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #db7812;
+    color: white;
+    box-shadow:
+        inset -2px -2px 0 0 #3b2e1e,
+        inset 2px 2px 0 0 #fff8e7;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: url("https://assets.codepen.io/7237686/cursor.gif"), auto;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #ffc878;
+    border: 4px solid #db7812;
+    border-radius: 4px;
+    box-shadow:
+        inset -2px -2px 0 #3b2e1e,
+        inset 2px 2px 0 #3b2e1e,
+        2px 2px 0 #3b2e1e;
+
+    transition: transform 0.1s ease;
+    color: green;
+    font-weight: bold;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow:
+        inset 2px 2px 0 #3b2e1e,
+        inset -2px -2px 0 #3b2e1e;
+}
+
+.todo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 1rem;
+    padding: 1rem;
+    width: 90%;
+    /*     background-color: #ffc878;
+    border: 6px solid #db7812;
+    border-radius: 8px;
+    box-shadow:
+        inset -2px -2px 0 #3b2e1e,
+        inset 2px 2px 0 #3b2e1e,
+        4px 4px 0 #3b2e1e; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.todo-card {
+    border: 6px solid #db7812;
+    background-color: #ffc878;
+    padding: 5px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        inset -2px -2px 0 #3b2e1e,
+        inset 2px 2px 0 #3b2e1e,
+        4px 4px 0 #3b2e1e;
+}
+
+.todo-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.todo-description {
+    max-width: 50ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
